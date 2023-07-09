@@ -1,0 +1,9 @@
+{% extends "login_signupmain.html" %} {% block head %} {% if error == 1%}
+<h3 style="color: crimson;">Email already exists, please log in.</h3>
+{% elif error == 2 %}
+<h3 style="color: crimson;">The password entered was incorrect</h3>
+{% elif error == 3 %}
+<h3 style="color: crimson;">Login is required</h3>
+{% else %}
+<h3 style="color: crimson;">Unknown Error</h3>
+{% endif %} {% endblock %}

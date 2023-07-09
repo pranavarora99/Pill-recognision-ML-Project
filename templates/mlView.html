@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pill identification</title>
+    <style>
+        .container1 {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            margin-right: 50px;
+        }
+        
+        header {
+            background-color: rgb(212, 208, 208);
+        }
+        
+        .h1 {
+            float: left;
+            position: relative;
+        }
+        
+        .logo {
+            float: left;
+            width: 12%;
+            height: 10%;
+            ;
+        }
+        
+        header::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        
+        nav {
+            float: right;
+        }
+        
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        nav li {
+            display: inline-block;
+            margin-left: 150px;
+            padding-top: 23px;
+            padding-right: 23px;
+        }
+        
+        nav a {
+            color: rgb(22, 23, 85);
+            font-family: Arial, Helvetica, fantasy;
+            text-decoration: green;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        nav a:hover {
+            color: red;
+        }
+        
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+            font-family: Apple Chancery, cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url("https://www.ranchiwomenscollege.org/wpimages/wp08feb7ab_05_06.jpg");
+            background-size: cover;
+            color: rgb(170, 165, 165);
+        }
+        
+        input[type="submit"],
+        input[type="file"] {
+            margin-top: 50px;
+            width: 20%;
+            box-shadow: 3px 4px 0px 0px #8a2a21;
+            background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+            background-color: #c62d1f;
+            border-radius: 18px;
+            border: 1px solid #d02718;
+            position: center;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 7px 25px;
+            margin-left: 250px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #810e05;
+        }
+        
+        input[type="submit"],
+        input[type="file"]:hover {
+            background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+            background-color: #f24437;
+        }
+        
+        input[type="submit"],
+        input[type="file"]:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        #mydiv {
+            visibility: hidden;
+        }
+        
+        #mydiv1 {
+            visibility: hidden;
+            margin-top: 65px;
+            text-align: center;
+            font-family: Apple Chancery, cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+        
+        #mydiv2 {
+            visibility: hidden;
+            margin-top: 65px;
+            text-align: center;
+            font-family: Apple Chancery, cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+        
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #f3f3f3;
+            border-top: 3px solid #f25a41;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            animation: spin 1s infinite linear;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function demoDisplay() {
+            document.getElementById("mydiv").style.visibility = "visible";
+            document.getElementById("mydiv1").style.visibility = "visible";
+            document.getElementById("mydiv2").style.visibility = "visible";
+        }
+    </script>
+</head>
+
+<body style=" background-color: lightblue;">
+    <header>
+        <div class="container1">
+
+            <img src="static/styles/img/logoproject.png" alt="logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('about_us')}}">About</a></li>
+                    <li><a href="{{url_for('contact_us')}}">Contact Us</a></li>
+                    <li><a href="{{url_for('account')}}">Account</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <form action="{{url_for('identify')}}" enctype="multipart/form-data" method="POST">
+        <h1> PLease slect a pill image from your device</h1>
+        <input type="file" name="file">
+        <br>
+        <input id="myDiv" type="submit" onclick="demoDisplay()">
+    </form>
+
+    <div id="mydiv1">ANALYZING</div>
+    <div id="mydiv" class="spinner"></div>
+    <div id="mydiv2">Great Results takes time :) </div>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="loginCSS.css"> -->
+    <style>
+        h1 {
+            font-family: Apple Chancery, cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        p {
+            font-family: Apple Chancery, cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: uppercase;
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+        
+        button {
+            width: 40%;
+            box-shadow: 3px 4px 0px 0px #8a2a21;
+            background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+            background-color: #c62d1f;
+            border-radius: 18px;
+            border: 1px solid #d02718;
+            position: center;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 7px 25px;
+            margin-left: 500px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #810e05;
+        }
+        
+        button:hover {
+            background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+            background-color: #f24437;
+        }
+        
+        button:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        body {
+            background-image: url("https://www.ranchiwomenscollege.org/wpimages/wp08feb7ab_05_06.jpg");
+            background-size: cover;
+            color: rgb(170, 165, 165);
+            margin-top: 200px;
+        }
+        
+        html {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> {{name}} your email logged into database with email: {{email}} </h1>
+    <p> Please use the following link if not directed to 5s </p>
+    <button type="button" onclick="window.location.href='{{url_for('index')}}';"> Log in </button>
+</body>
+
+</html>

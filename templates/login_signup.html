@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Change body */
+body, html {
+  /* background-image: url('templates\bkg.png') ; */
+  background-color:slategray;
+  padding: 40px;
+  max-width:600px;
+  margin:40px auto;
+  border-radius:4px;
+  height: 80%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+/* change tab links */
+.tab-link {
+  background-color: darkslategrey;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tab-link:hover {
+  background-color: slategrey;
+}
+
+/* change tab content */
+.tab-content {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Login {background-color: deepskyblue;}
+#SignUp {background-color: mediumseagreen;}
+
+</style>
+</head>
+
+<body>
+<h1 style="color:darkgreen;">Wellness Support Center</h1>
+	<hr>
+	<div><img src="WSC_home.jpg" width="1080
+	" height="350" alt="Wellness Support Center">
+	</div>
+<div id=container>
+<button class="tab-link" onclick="openPage('Login', this, 'deepskyblue')" id="default">Login</button>
+<button class="tab-link" onclick="openPage('SignUp', this, 'mediumseagreen')">Sign Up</button>
+
+
+<div id="Login"  class="tab-content">
+  <!-- /* create a block for a failure redirect: */ -->
+{% block head%}
+{% endblock %}
+  <h1>Sign in to your Account</h1>
+  	<form action = "{{url_for('login')}}" method="POST">
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email*" name="email"  required>
+    
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Your Name*" name="name" required>
+    
+
+  	
+    <label for="pswd"><b>Password</b></label>
+    <input type="password" 
+      oninvalid="this.setCustomValidity('Password does not meet requirements')"
+      onchange="try{setCustomValidity('')}catch(e){}"
+      placeholder="Enter Password*" 
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" 
+      name="pass" 
+      required>
+    
+    <button type="submit">Sign In</button>
+    </form>
+
+	
+	<a id="forgot-password" href="#">Forgot password?</a>
+    
+
+    <div class="clearfix">
+	
+	</div>
+</div>
+
+<div id="SignUp" class="tab-content">
+    <h1>Create an account.</h1>
+    <form action="{{url_for('signup')}}" method="POST">
+
+    <label for="firstname"><b>First Name</b></label>
+    <input type="text" id="firstname" placeholder="First Name*" name="firstname" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="email" placeholder="Enter Email*" name="mail" required>
+  	
+    <label for="pswd"><b>Password</b></label>
+    <input type="password" 
+      id="pass"
+      placeholder="Enter Password*"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" 
+      oninvalid="this.setCustomValidity('The password entered does not meet minimum requirements')"
+      onchange="try{setCustomValidity('')}catch(e){}" 
+      name="pass" required>
+    
+  	<p>By creating an account you agree to our <a href="#" style="color:blue">Terms & Privacy</a>.</p>
+  	
+
+    <div class="clearfix">
+    <button type="button" class="cancelbtn" onclick="clearFields()" >Cancel</button>
+    <button type="submit" class="signupbtn">Create Account</button>
+    </div>
+    </form>
+</div>
+</div>
+
+
+<script>
+  // document.body.style.backgroundImage = "templates\bkg.png";
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tab-link");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// always open with default
+document.getElementById("default").click();
+//cancel button
+function clearFields(){
+  document.getElementById("firstname").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("pass").value = "";
+}
+</script>
+   
+</body>
+</html> 

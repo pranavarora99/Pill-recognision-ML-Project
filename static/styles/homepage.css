@@ -1,0 +1,48 @@
+@charset "utf-8";
+body{
+	width: 90%;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+#container{
+	display: grid;
+	grid-auto-rows:minmax(150px, auto);
+	grid-gap: 40px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#link1{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px; 
+	text-align: center;
+	display: inline-block;
+}
+
+#link2{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;  
+	text-align: center;
+	display: inline-block;
+}
+
+#link3{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;  
+	width: 400;
+	text-align: center;
+	display: inline-block;
+}
+#help{
+	text-align: center;
+}

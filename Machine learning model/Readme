@@ -1,0 +1,5 @@
+
+The Convolutional Neural network takes in 1200 images to find the match of userInput.
+Using pretrained model VGG16 from torch libraries to train the model.
+Storing feature vectors obtained from the model to compare later with userinput.
+Returning the name of the pill and its accuracy of the model to the user.
